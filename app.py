@@ -332,7 +332,7 @@ def grade_assignment(student_id, filename):
         return "Assignment not found", 404
 
     return render_template('grade_assignment.html', student_id=student_id, assignment=assignment,filename=filename)
-app = Flask(__name__)
+app = Flask(__name__, root_path='.')
 
 
 @app.route('/')
