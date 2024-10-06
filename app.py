@@ -334,9 +334,11 @@ def grade_assignment(student_id, filename):
     return render_template('grade_assignment.html', student_id=student_id, assignment=assignment,filename=filename)
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', template_folder='.')
+
 
 @app.route('/get-file')
 def get_file():
