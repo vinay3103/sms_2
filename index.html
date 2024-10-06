@@ -3,10 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open app.py</title>
+    <title>View File Content</title>
+    <script>
+        // Function to load file content from the server
+        function loadFileContent() {
+            fetch('/get-file')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById('fileContent').textContent = 'Error: ' + data.error;
+                    } else {
+                        document.getElementById('fileContent').textContent = data.content;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching file:', error);
+                });
+        }
+    </script>
 </head>
 <body>
-    <h1>Open app.py from GitHub</h1>
-    <a href="https://github.com/vinay3103/sms/blob/main/app.py" target="_blank">Open app.py</a>
+    <h1>Content of app.py</h1>
+    <button onclick="loadFileContent()">Load File Content</button>
+    <pre id="fileContent" style="border: 1px solid #ccc; padding: 10px; max-height: 400px; overflow-y: scroll;"></pre>
 </body>
 </html>

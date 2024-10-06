@@ -332,6 +332,19 @@ def grade_assignment(student_id, filename):
         return "Assignment not found", 404
 
     return render_template('grade_assignment.html', student_id=student_id, assignment=assignment,filename=filename)
+app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/get-file')
+def get_file():
+    try:
+        with open('app.py', 'r') as file:
+            file_content = file.read()
+        return jsonify({'content': file_content})
+    except Exception as e:
+        return jsonify({'error': str(e)})
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=5000,debug=True)
