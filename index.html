@@ -1,52 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>app.py Content</title>
-    <style>
-        /* Basic styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        pre {
-            background-color: #f4f4f4;
-            border: 1px solid #ddd;
-            padding: 15px;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-    </style>
+  <meta http-equiv="refresh" content="0; url=http://localhost:5000/" />
 </head>
 <body>
-    <h1>Content of app.py</h1>
-    <pre id="fileContent">Loading...</pre>
-
-    <script>
-        // Function to fetch the content of app.py from GitHub
-        async function loadFileContent() {
-            const repoOwner = 'vinay3103';
-            const repoName = 'sms_2';
-            const filePath = 'app.py';
-
-            const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
-
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch file: ${response.statusText}`);
-                }
-                const data = await response.json();
-                const fileContent = atob(data.content);
-                document.getElementById('fileContent').textContent = fileContent;
-            } catch (error) {
-                document.getElementById('fileContent').textContent = `Error: ${error.message}`;
-            }
-        }
-
-        // Load the file content when the page loads
-        loadFileContent();
-    </script>
+  <!-- Optional: add a message or a loading animation -->
+  <h1>Redirecting to app.py...</h1>
 </body>
 </html>
