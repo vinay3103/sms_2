@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Details</title>
+    <title>app.py Content</title>
     <style>
+        /* Basic styling */
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -17,40 +18,35 @@
             overflow-y: auto;
         }
     </style>
-    <script>
-        // Function to fetch the app.py file content from GitHub
-        function loadFileContent() {
-            const repoOwner = 'vinay3103';  // Your GitHub username
-            const repoName = 'sms_2';       // Your repository name
-            const filePath = 'app.py';      // Path to the app.py file in your repo
-
-            // GitHub API URL to fetch the raw content of the file
-            const url = `https://raw.githubusercontent.com/${repoOwner}/${repoName}/main/${filePath}`;
-
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Failed to fetch file: ${response.statusText}`);
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById('fileContent').textContent = data;
-                })
-                .catch(error => {
-                    document.getElementById('fileContent').textContent = `Error: ${error.message}`;
-                });
-        }
-
-        // Load the file content once the page loads
-        window.onload = loadFileContent;
-    </script>
 </head>
 <body>
-    <h1>Project: SMS 2</h1>
-    <p>This page displays the content of <code>app.py</code> from the repository.</p>
-
-    <h2>app.py File Content:</h2>
+    <h1>Content of app.py</h1>
     <pre id="fileContent">Loading...</pre>
+
+    <script>
+        // Function to fetch the content of app.py from GitHub
+        async function loadFileContent() {
+            const repoOwner = 'vinay3103';
+            const repoName = 'sms_2';
+            const filePath = 'app.py';
+
+            const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch file: ${response.statusText}`);
+                }
+                const data = await response.json();
+                const fileContent = atob(data.content);
+                document.getElementById('fileContent').textContent = fileContent;
+            } catch (error) {
+                document.getElementById('fileContent').textContent = `Error: ${error.message}`;
+            }
+        }
+
+        // Load the file content when the page loads
+        loadFileContent();
+    </script>
 </body>
 </html>
