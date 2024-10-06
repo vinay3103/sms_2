@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attendance Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+<div class="container">
+    <h3>Attendance</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Day</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for subject, days in attendence.items() %}
+                {% for day, status in days.items() %}
+                    <tr>
+                        <td>{{ subject }}</td>
+                        <td>{{ day }}</td>
+                        <td>{{ status }}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="bottom-container">
+        <a href="{{ url_for('student_portal', student_id=student.id) }}"class="back-button">Back to Faculty Portal</a>
+    </div>
+</div>
+</body>
+</html>

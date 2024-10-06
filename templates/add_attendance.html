@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Attendance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="attendance-container">
+        <h1>Add Attendance</h1>
+        <form action="{{ url_for('add_attendance', faculty_id=faculty_id) }}" method="POST">
+            <div class="form-group">
+                <label for="day">Date:</label>
+                <input type="date" id="day" name="day" required>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Attendance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td class="student-id">{{ student.id }}</td>
+                        <td class="student-name">{{ student.name }}</td>
+                        <td>
+                            <select name="attendance_{{ student.id }}" class="attendance-select" required>
+                                <option value="Present">Present</option>
+                                <option value="Absent">Absent</option>
+                                <option value="Late">Late</option>
+                            </select>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button type="submit" class="attendance-submit-button">Submit</button>
+        </form>
+        <a href="{{ url_for('faculty_portal', faculty_id=faculty_id) }}" class="back-button">Back to Faculty Portal</a>
+    </div>
+</body>
+</html>

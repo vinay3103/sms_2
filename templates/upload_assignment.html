@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Assignment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Upload Assignment for {{ student_id }}</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <label for="subject">Subject:</label>
+            <select name="subject" id="subject" class="large-select" required>
+                <option value="Maths">Maths</option>
+                <option value="Science">Science</option>
+                <option value="English">English</option>
+                <!-- Add other subjects as needed -->
+            </select>
+            <br>
+            <label for="file">File:</label>
+            <input type="file" name="file" id="file" class="large-file-input" required>
+            <br>
+            <input type="submit" value="Upload" class="large-button">
+        </form>
+        <a href="{{ url_for('student_portal', student_id=student_id) }}" class="back-button">Back to Student Portal</a>
+    </div>
+</body>
+</html>

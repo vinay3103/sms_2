@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Assignments</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Assignments for {{ faculty_id }}</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="messages">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        {% for student_id, student_assignments in assignments.items() %}
+            <div class="student-assignments">
+                <h2>Student: {{ student_id }}</h2>
+                <div class="assignment-list">
+                    {% for assignment in student_assignments %}
+                        <div class="assignment-box">
+                            <div class="assignment-details">
+                                <h3>{{ assignment.subject }}</h3>
+                                <a href="{{ url_for('uploaded_file', filename=assignment.filename) }}" class="file-link">{{ assignment.filename }}</a>
+                            </div>
+                            <div class="assignment-actions">
+                                {% if assignment.grade %}
+                                    <p class="grade">Grade: {{ assignment.grade }}</p>
+                                {% else %}
+                                    <a href="{{ url_for('grade_assignment', student_id=student_id, filename=assignment.filename) }}" class="button">Grade this assignment</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+        <a href="{{ url_for('faculty_portal', faculty_id=faculty_id) }}" class="back-button">Back to Faculty Portal</a>
+    </div>
+</body>
+</html>

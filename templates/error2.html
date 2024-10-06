@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Error</h2>
+    <p>{{ error }}</p>
+    <a href="{{ url_for('add_attendance') }}">Try Again</a>
+</body>
+</html>

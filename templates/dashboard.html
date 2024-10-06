@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <div class="button-container">
+            <a href="{{ url_for('student_login') }}" class="button">Student Login</a>
+            <a href="{{ url_for('faculty_login') }}" class="button">Faculty Login</a>
+            <a href="{{ url_for('contact') }}" class="button">Contact</a>
+        </div>
+    </div>
+</body>
+</html>

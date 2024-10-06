@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Marks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Marks</h1>
+        <form action="{{ url_for('add_marks', faculty_id=faculty_id) }}" method="POST">
+            <div class="form-group">
+                <label for="assignment_type">Assignment Type:</label>
+                <input type="text" id="assignment_type" name="assignment_type" required>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Marks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.name }}</td>
+                        <td><input type="number" name="marks_{{ student.id }}" min="1" max="100" required></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button type="submit" class="button">Submit</button>
+        </form>
+        <a href="{{ url_for('faculty_portal', faculty_id=faculty_id) }}" class="back-button">Back to Faculty Portal</a>
+    </div>
+</body>
+</html>

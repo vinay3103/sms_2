@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Error</h1>
+        <p>{{ error }}</p>
+        <a href="{{ url_for('faculty_portal', faculty_id=request.args.get('faculty_id')) }}" class="back-button">Back to Faculty Portal</a>
+    </div>
+</body>
+</html>

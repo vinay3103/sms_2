@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ student.name }}</h1>
+        <div class="button-container">
+            <a href="{{ url_for('upload_assignment', student_id=student.id) }}" class="button">Upload Assignment</a>
+            <a href="{{ url_for('marks_page', student_id=student.id) }}" class="button">View Marks</a>
+            <a href="{{ url_for('attendence_page', student_id=student.id) }}" class="button">View Attendance</a>
+            <a href="{{ url_for('logout') }}" class="button">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

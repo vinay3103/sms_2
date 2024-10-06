@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grade Assignment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Grade Assignment for {{ student_id }}</h1>
+        <h2>{{ assignment.subject }} - {{ assignment.filename }}</h2>
+        <form method="POST">
+            <label for="grade">Grade (1-100):</label>
+            <input type="number" id="grade" name="grade" min="1" max="100" required>
+            <button type="submit" class="large-button">Submit</button>
+        </form>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="messages">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculty Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ faculty.name }}</h1>
+        <div class="button-container">
+            <a href="{{ url_for('add_marks', faculty_id=faculty.id) }}" class="button">Add Marks</a>
+            <a href="{{ url_for('add_attendance', faculty_id=faculty.id) }}" class="button">Add Attendance</a>
+            <a href="{{ url_for('view_assignments', faculty_id=faculty.id) }}" class="button">View Assignments</a>
+            <a href="{{ url_for('logout') }}" class="button">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

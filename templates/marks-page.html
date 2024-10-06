@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Marks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <h3>Marks</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Assessment</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for subject, assessments in marks.items() %}
+                {% for assessment, mark in assessments.items() %}
+                    <tr>
+                        <td>{{ subject }}</td>
+                        <td>{{ assessment }}</td>
+                        <td>{{ mark }}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('student_portal', student_id=student.id) }}"class="back-button">Back to Faculty Portal</a>
+</body>
+</html>

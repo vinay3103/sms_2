@@ -1,0 +1,398 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    background-size: 400% 400%;
+    background-color: #f8f9fa;
+    animation: gradientSlide 15s ease infinite;
+    color: #333;
+    opacity: 1;
+    animation: pageFadeIn 0.5s ease-in-out;
+}
+
+@keyframes gradientSlide {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes pageFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pageFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+h2 {
+    background-color: rgba(51, 51, 51, 0.8);
+    color: #fff;
+    padding: 20px;
+    animation: slideDown 1s ease-in-out;
+}
+
+form, table {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    margin: 20px auto;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 2s ease-in-out;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    animation: fadeIn 2s ease-in-out;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    color: #333; /* Changed text color to be more readable */
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+    color: #555;
+    transform: scale(1.05);
+}
+
+p.error {
+    color: red;
+    font-weight: bold;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #6c757d;
+    font-size: 1.2em;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.button, .back-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s, background-color 0.3s;
+}
+.messages {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.messages li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.messages .error {
+    background-color: #dc3545;
+}
+
+.messages .success {
+    background-color: #28a745;
+}
+
+.student-assignments {
+    margin-bottom: 30px;
+}
+
+.assignment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.assignment-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent background for assignment boxes */
+
+}
+
+.assignment-details {
+    flex: 2;
+}
+
+.assignment-actions {
+    flex: 1;
+    text-align: right;
+}
+
+.file-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.file-link:hover {
+    color: #0056b3;
+}
+
+.grade {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.button:hover, .back-button:hover{
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.button:active, .back-button:active {
+    transform: scale(1);
+}
+/* Add styles for the large select dropdown */
+.large-select {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease;
+}
+
+.large-select:focus {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Add styles for the large file input */
+.large-file-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease;
+}
+
+.large-file-input:focus {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Add styles for the large button */
+.large-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.large-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.large-button:active {
+    transform: scale(1);
+}
+/* Styles specific to the Add Attendance page */
+.student-id, .student-name {
+    font-size: 1.2em; /* Increase the font size */
+    color: #333; /* Ensure the text color contrasts well with the background */
+}
+
+/* If you want to increase the size of the entire row */
+table tbody tr {
+    font-size: 1.1em; /* Slightly larger font size for all cells in the row */
+}
+/* Styles specific to the Add Attendance page */
+.attendance-container {
+    max-width: 600px; /* Smaller container width */
+    margin: 20px auto; /* Center the container with some margin */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95); /* Slightly transparent white background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Ensures that the container covers all content */
+}
+
+.attendance-container h1 {
+    width:100%;
+    margin-bottom: 20px;
+    font-size: 1.3em; /* Adjust font size if necessary */
+    color: #333;
+}
+
+.attendance-container table {
+    width: 130%; /* Ensure the table takes the full width of the container */
+    margin: 20px 0; /* Add some margin above and below the table */
+}
+
+.attendance-container th, 
+.attendance-container td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.attendance-select {
+    width: 100%; /* Ensure the select box takes up the full width of the cell */
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease;
+}
+
+.attendance-select:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+.attendance-submit-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+}
+
+.attendance-submit-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.attendance-container table td {
+    position: relative; /* Enable positioning for internal elements */
+}
+
+/* Adjust the select box to ensure it is fully visible */
+.attendance-container table .attendance-select {
+    position: relative;
+    z-index: 1; /* Ensure the select box stays above any overlapping content */
+    max-width: 95%; /* Slightly reduce the width to ensure full visibility */
+    margin: auto; /* Center the select box horizontally */
+}
+
+/* Adjust the container's height to ensure full coverage */
+.attendance-container {
+    min-height: calc(100% + 20px); /* Ensure the container is slightly taller than its content */
+}
+/* Increase the size of the Form Group Container */
+.attendance-container .form-group {
+    margin-bottom: 20px; /* Increase spacing below the form group */
+    padding: 15px; /* Add padding inside the form group */
+    background-color: rgba(240, 240, 240, 0.9); /* Optional: Add a background color to make it stand out */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    text-align: left; /* Align the content to the left */
+}
+
+/* Increase the size of the label and input inside the form group */
+.attendance-container .form-group label {
+    font-size: 1.2em; /* Increase the label font size */
+    display: block; /* Ensure the label is on its own line */
+    margin-bottom: 10px; /* Add spacing below the label */
+}
+
+.attendance-container .form-group input[type="date"] {
+    width: 100%; /* Make the input field take the full width of the container */
+    padding: 10px; /* Increase padding inside the input field */
+    font-size: 1.2em; /* Increase the font size inside the input field */
+    border: 1px solid #ccc; /* Add a border to the input field */
+    border-radius: 4px; /* Add rounded corners to the input field */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width/height */
+}
