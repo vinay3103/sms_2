@@ -337,8 +337,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html', template_folder='.')
-
+    return send_file('index.html')
 
 @app.route('/get-file')
 def get_file():
