@@ -3,28 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View File Content</title>
+    <title>Project Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
     <script>
-        // Function to load file content from the server
+        // Function to fetch the app.py file content from GitHub
         function loadFileContent() {
-            fetch('/get-file')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        document.getElementById('fileContent').textContent = 'Error: ' + data.error;
-                    } else {
-                        document.getElementById('fileContent').textContent = data.content;
+            const repoOwner = 'vinay3103';  // Your GitHub username
+            const repoName = 'sms_2';       // Your repository name
+            const filePath = 'app.py';      // Path to the app.py file in your repo
+
+            // GitHub API URL to fetch the raw content of the file
+            const url = `https://raw.githubusercontent.com/${repoOwner}/${repoName}/main/${filePath}`;
+
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Failed to fetch file: ${response.statusText}`);
                     }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('fileContent').textContent = data;
                 })
                 .catch(error => {
-                    console.error('Error fetching file:', error);
+                    document.getElementById('fileContent').textContent = `Error: ${error.message}`;
                 });
         }
+
+        // Load the file content once the page loads
+        window.onload = loadFileContent;
     </script>
 </head>
 <body>
-    <h1>Content of app.py</h1>
-    <button onclick="loadFileContent()">Load File Content</button>
-    <pre id="fileContent" style="border: 1px solid #ccc; padding: 10px; max-height: 400px; overflow-y: scroll;"></pre>
+    <h1>Project: SMS 2</h1>
+    <p>This page displays the content of <code>app.py</code> from the repository.</p>
+
+    <h2>app.py File Content:</h2>
+    <pre id="fileContent">Loading...</pre>
 </body>
 </html>
